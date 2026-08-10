@@ -12,6 +12,7 @@ protocols = {
 #Fancy label for the quiz
 print("\033[35m Welcome to the Networking Ports Quiz! \033[0m")
 
+#Until the user enters exit, this will indefinitely loop. If the user input isn't 1, it will prompt the user to try again.
 while True:
     user_input = input("Type '1' to start the quiz or 'exit' to quit: ")
 
@@ -28,6 +29,8 @@ while True:
     protocol, (port, proto_type) = random.choice(list(protocols.items()))
     user_answer = input(f"What is the port number for {protocol}?: ")
 
+    #If the user input is a digit and it equals the randomly selected port number (from the dict code above), it will print correct. Same with the protocol type
+    #If it is incorrect, it will give feedback on the correct answer!
     if user_answer.isdigit() and int(user_answer) == port:
         print("Correct!")
         proto_type_answer = input("What is the protocol type for this port? (TCP/UDP): ")
